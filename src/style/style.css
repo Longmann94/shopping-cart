@@ -1,0 +1,38 @@
+body{
+  font-family: arial,sans-serif;
+}
+
+.main-container {
+  display: grid;
+  grid: 200px 1fr / 1fr;
+}
+
+.header-nav{
+ display: grid;
+ grid: 1fr / repeat(3, 1fr);
+ padding: 1rem;
+ justify-items: center;
+ align-items: center;
+ background-color: grey;
+ color: white;
+}
+
+.store-container {
+  display: grid;
+  grid: 1fr / repeat(3, 1fr);
+}
+
+.item-card{
+  display: grid;
+  grid: 1fr/1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background: snow;
+  margin: 1rem;
+}
+
+img{
+  border-radius: 25px;
+}

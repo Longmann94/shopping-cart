@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Link to='/'> home </Link>
-      <Link to='/shop'> shop </Link>
-      <Link to='cart'> cart </Link>
-      <h1>this is the home page</h1>
+      <h1>HomePage!</h1>
     </div>
   );
 }
