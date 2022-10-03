@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation} from 'react-router-dom';
 import ItemCard from './components/ItemCard';
 import uniqid from 'uniqid';
 import Nav from './components/Nav.js';
@@ -76,6 +76,8 @@ const Cart = () => {
   //   (previousValue, currentValue) => previousValue + currentValue,
   //   initalPrice
   // );
+  const location = useLocation();
+  const state = location.state;
   console.log(state);
 
   return(
