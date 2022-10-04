@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Longmann94/shopping-cart/static/css/main.29b107c4.css",
+    "main.js": "/Longmann94/shopping-cart/static/js/main.2ba2b843.js",
+    "index.html": "/Longmann94/shopping-cart/index.html",
+    "main.29b107c4.css.map": "/Longmann94/shopping-cart/static/css/main.29b107c4.css.map",
+    "main.2ba2b843.js.map": "/Longmann94/shopping-cart/static/js/main.2ba2b843.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29b107c4.css",
+    "static/js/main.2ba2b843.js"
+  ]
+}
