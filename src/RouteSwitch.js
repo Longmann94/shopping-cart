@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 const RouteSwitch = () => {
   return (
     <div className="main-container">
-      <Router>
+      <Router basename='https://longmann94.github.io/shopping-cart/'>
         <Nav />
         <Routes>
           <Route path='/' element={<App />} />
