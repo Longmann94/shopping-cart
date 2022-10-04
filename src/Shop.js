@@ -51,36 +51,44 @@ const Shop = () => {
           ...cart, item
         ]);
       }
-
-      const itemsQuantity = [];
-      const sum = cart.forEach(item => {
-        itemsQuantity.push(item.quantity);
-      });
-      const initalQuantity = 0;
-      const sumWithInitalValue = itemsQuantity.reduce(
-        (previousValue, currentValue) => previousValue + currentValue,
-        initalQuantity
-      );
-
-      setCartQuantity(sumWithInitalValue);
     }
     cartBtn.forEach(btn => btn.addEventListener('click', onClick));
 
     return () => {
       cartBtn.forEach(btn => btn.removeEventListener('click', onClick));
     }
-  });
+  },[cart, cartQuantity]);
 
   useEffect(() => {
-    setCartQuantity(cartQuantity);
-  },[cartQuantity]);
+    const cartBtn = document.querySelectorAll('.cart-button');
+    const handleChange = () =>{
+      console.log(cart);
+      const itemsQuantity = [];
+      const sum = cart.forEach(item => {
+          itemsQuantity.push(item.quantity);
+            });
+          const initalQuantity = 0;
+          const sumWithInitalValue = itemsQuantity.reduce(
+              (previousValue, currentValue) => previousValue + currentValue,
+              initalQuantity
+            );
+
+      setCartQuantity(sumWithInitalValue);
+    }
+
+    cartBtn.forEach(btn => btn.addEventListener('click', handleChange));
+
+    return () => {
+        cartBtn.forEach(btn => btn.removeEventListener('click', handleChange));
+      }
+  });
 
 
   return (
     <div>
       <div className="cart-container">
-        cart have {cartQuantity} items
-        <Link to='/cart' state={cart}> Show Cart </Link>
+        Cart have {cartQuantity} items
+        <Link to='/cart' state={cart}>Check Out</Link>
       </div>
       <div className="store-container">
 
@@ -135,11 +143,12 @@ const handleChange = (e) => {
   let previousValue = currentCart.find(item => item.id == e.target.id);
   let updatedCart = currentCart.filter(item => item.id != e.target.id);
   let newQuantity = e.target.value;
+
   setCurrentCart(
     sortAlphabetical([...updatedCart, {
       ...previousValue,
       quantity: newQuantity,
-    }])
+    }]).filter(item => item.quantity != 0)
   );
 }
 
