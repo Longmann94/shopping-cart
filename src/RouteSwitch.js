@@ -3,6 +3,7 @@ import App from './App';
 import { Shop, Cart } from './Shop';
 import Nav from './components/Nav';
 import './style/style.css';
+import Footer from './components/Footer';
 
 const RouteSwitch = () => {
   return (
@@ -14,6 +15,7 @@ const RouteSwitch = () => {
           <Route path='/shop' element={<Shop />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

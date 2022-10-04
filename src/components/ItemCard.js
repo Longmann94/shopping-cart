@@ -6,8 +6,8 @@ const ItemCard = (props) => {
     <div className="item-card">
       <img src='https://picsum.photos/150/150' />
       <div className='item-name'>{props.item.name}</div>
-      <div className='item-price'>{props.item.price}</div>
-      <div className='item-details'>{props.item.details}</div>
+      <div className='item-price'>Price: ${props.item.price}</div>
+      <div className='item-details'>Product Info:{props.item.details}...</div>
       <button className='cart-button' id={props.item.id}>Add to cart!</button>
     </div>
   );

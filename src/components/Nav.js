@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <div class='header-nav'>
-      <Link to='/'> home </Link>
-      <Link to='/shop'> shop </Link>
+      <Link to='/'> HOME </Link>
+      <Link to='/shop'> SHOP </Link>
     </div>
   );
 }
