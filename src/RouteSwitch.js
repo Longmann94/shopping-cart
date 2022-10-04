@@ -8,15 +8,15 @@ import Footer from './components/Footer';
 const RouteSwitch = () => {
   return (
     <div className="main-container">
-      <HashRouter>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/cart' element={<Cart />} />
-        </Routes>
-        <Footer />
-      </HashRouter>
+
+      <Nav />
+      <Routes>
+        <Route path='/' element={<App />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
+      <Footer />
+
     </div>
   );
 };
