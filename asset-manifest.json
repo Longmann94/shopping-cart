@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Longmann94/shopping-cart/static/css/main.29b107c4.css",
-    "main.js": "/Longmann94/shopping-cart/static/js/main.2ba2b843.js",
+    "main.js": "/Longmann94/shopping-cart/static/js/main.5f4dfb8b.js",
     "index.html": "/Longmann94/shopping-cart/index.html",
     "main.29b107c4.css.map": "/Longmann94/shopping-cart/static/css/main.29b107c4.css.map",
-    "main.2ba2b843.js.map": "/Longmann94/shopping-cart/static/js/main.2ba2b843.js.map"
+    "main.5f4dfb8b.js.map": "/Longmann94/shopping-cart/static/js/main.5f4dfb8b.js.map"
   },
   "entrypoints": [
     "static/css/main.29b107c4.css",
-    "static/js/main.2ba2b843.js"
+    "static/js/main.5f4dfb8b.js"
   ]
 }
