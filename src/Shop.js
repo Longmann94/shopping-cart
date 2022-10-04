@@ -87,7 +87,7 @@ const Shop = () => {
     <div>
       <div className="cart-container">
         Cart have {cartQuantity} items
-        <Link to='/shopping-cart/cart' state={cart}>Check Out</Link>
+        <Link to='/cart' state={cart}>Check Out</Link>
       </div>
       <div className="store-container">
 
