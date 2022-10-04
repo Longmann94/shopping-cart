@@ -157,10 +157,10 @@ const handleChange = (e) => {
         {
           currentCart.map(item => {
             return (
-              <div className='cart-list'>
+              <div className='cart-list' key={item.key}>
                 <CartItem item={item} />
                 <div>
-                  <label for={item.id}>Amount:</label>
+                  <label htmlFor={item.id}>Amount:</label>
                   <input type='number' id={item.id} value={item.quantity} onChange={handleChange}></input>
                 </div>
               </div>
