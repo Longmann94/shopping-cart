@@ -1,4 +1,4 @@
-import {  HashRouter, Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import App from './App';
 import { Shop, Cart } from './Shop';
 import Nav from './components/Nav';
@@ -11,9 +11,9 @@ const RouteSwitch = () => {
 
       <Nav />
       <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/shopping-cart' element={<App />} />
+        <Route path='/shopping-cart/shop' element={<Shop />} />
+        <Route path='/shopping-cart/cart' element={<Cart />} />
       </Routes>
       <Footer />
 
