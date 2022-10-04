@@ -168,7 +168,7 @@ const handleChange = (e) => {
           })
         }
       </div>
-      <div className='total-cart-cost'>Total Cost of items: ${totalSum}.</div>
+      <div className='total-cart-cost'>Total Cost of items: ${totalSum}. <button>Check Out</button></div>
     </div>
       );
 }
