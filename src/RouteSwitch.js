@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {  HashRouter, Routes, Route} from 'react-router-dom';
 import App from './App';
 import { Shop, Cart } from './Shop';
 import Nav from './components/Nav';
@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 const RouteSwitch = () => {
   return (
     <div className="main-container">
-      <Router basename='https://longmann94.github.io/shopping-cart/'>
+      <HashRouter>
         <Nav />
         <Routes>
           <Route path='/' element={<App />} />
@@ -16,7 +16,7 @@ const RouteSwitch = () => {
           <Route path='/cart' element={<Cart />} />
         </Routes>
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 };
