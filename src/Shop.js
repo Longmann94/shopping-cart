@@ -45,7 +45,14 @@ const Shop = () => {
       const checkCart = cart.find(cartItem => cartItem.id == item.id);
 
       if(checkCart){
-        checkCart.quantity = checkCart.quantity + 1;
+        let prevValue = cart.find(item => item.id == e.target.id);
+        let updatedCart = cart.filter(item => item.id != e.target.id);
+        setCart([
+          ...updatedCart, {
+            ...prevValue,
+            quantity: prevValue.quantity + 1,
+          }
+        ]);
       }else{
         setCart([
           ...cart, item
@@ -57,31 +64,23 @@ const Shop = () => {
     return () => {
       cartBtn.forEach(btn => btn.removeEventListener('click', onClick));
     }
+
   },[cart, cartQuantity]);
 
+
   useEffect(() => {
-    const cartBtn = document.querySelectorAll('.cart-button');
-    const handleChange = () =>{
-      console.log(cart);
-      const itemsQuantity = [];
-      const sum = cart.forEach(item => {
-          itemsQuantity.push(item.quantity);
-            });
-          const initalQuantity = 0;
-          const sumWithInitalValue = itemsQuantity.reduce(
-              (previousValue, currentValue) => previousValue + currentValue,
-              initalQuantity
-            );
+    const itemsQuantity = [];
+    const sum = cart.forEach(item => {
+        itemsQuantity.push(item.quantity);
+          });
+        const initalQuantity = 0;
+        const sumWithInitalValue = itemsQuantity.reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            initalQuantity
+          );
 
-      setCartQuantity(sumWithInitalValue);
-    }
-
-    cartBtn.forEach(btn => btn.addEventListener('click', handleChange));
-
-    return () => {
-        cartBtn.forEach(btn => btn.removeEventListener('click', handleChange));
-      }
-  });
+    setCartQuantity(sumWithInitalValue);
+  }, [cart]);
 
 
   return (
@@ -152,7 +151,6 @@ const handleChange = (e) => {
   );
 }
 
-
   return(
     <div>
       <div className='cart-items'>
@@ -170,7 +168,7 @@ const handleChange = (e) => {
           })
         }
       </div>
-      <div className='total-cart-cost'>Total Cost of all items: ${totalSum}.</div>
+      <div className='total-cart-cost'>Total Cost of items: ${totalSum}.</div>
     </div>
       );
 }
