@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import { useLocation } from 'react-router-dom';
 
+import Button from '@mui/material/Button';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+
 const Cart = ({ cart, handleChange }) => {
 
 
@@ -32,7 +35,10 @@ const Cart = ({ cart, handleChange }) => {
       <div className='cart-items'>
 
         {
-          cart.length === 0 &&  <div className='empty-cart-message'> you got nothing in your cart :( </div>
+          cart.length === 0 &&  <div className='empty-cart-message'>
+            <p>You've got nothing in your cart :(</p>
+            <p>Surely you must be interested in some of these super random items :)</p>
+          </div>
         }
 
         {
@@ -49,7 +55,7 @@ const Cart = ({ cart, handleChange }) => {
           })
         }
       </div>
-      <div className='total-cart-cost'>Total Cost of items: ${totalSum}. <button>Check Out</button></div>
+      <div className='total-cart-cost'>Total Cost of items: ${totalSum}. <Button variant='contained'><ShoppingCartCheckoutIcon />Check Out</Button></div>
     </div>
       );
 }

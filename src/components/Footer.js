@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      (c){year} <a href="https://github.com/Longmann94">Long Mann</a>
+      (c){year} created using React <a href="https://github.com/Longmann94">Long Mann</a>
     </div>
   )
 }

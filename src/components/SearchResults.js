@@ -3,7 +3,8 @@ import ItemCard from './ItemCard';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const Shop = ({ cartQuantity, itemsArr, handleClick }) => {
+
+const SearchResults = ({ cartQuantity, itemsArr, handleClick }) => {
 
   return (
     <div>
@@ -20,6 +21,4 @@ const Shop = ({ cartQuantity, itemsArr, handleClick }) => {
   );
 }
 
-
-
-export default Shop;
+export default SearchResults;

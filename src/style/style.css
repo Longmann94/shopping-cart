@@ -1,15 +1,12 @@
 body{
   font-family: 'Roboto', sans-serif;
   margin: auto;
+  overflow: hidden;
 }
 
 .main-container {
   display: grid;
   grid: 150px 1fr/ 1fr;
-}
-
-.homepage-container{
-  padding: 1rem;
 }
 
 .header-nav{
@@ -18,11 +15,17 @@ body{
  padding: 1rem;
  justify-items: center;
  align-items: center;
- background-color: pink;
+ background-color: rgba(162, 210, 255);
  color: white;
  font-size: 2rem;
  font-weight: bold;
  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.search-box{
+  display: flex;
+  width: 95%;
+  align-content: center;
 }
 
 .footer{
@@ -33,6 +36,7 @@ width: 100%;
 color: white;
 background: rgba(0, 0, 0,  0.5);
 text-align: center;
+padding: 1rem;
 }
 
 .cart-container{
@@ -72,6 +76,14 @@ img{
   gap: 1rem;
 }
 
+.empty-cart-message{
+  text-align: center;
+}
+
+.cart-items{
+  padding: 5rem;
+}
+
 .cart-list{
   display: grid;
   grid: 1fr / 1fr 1fr;
@@ -81,6 +93,67 @@ img{
 
 .total-cart-cost{
   text-align: right;
-  padding: 1.5rem;
+  padding: 2.5rem;
   font-weight: bold;
+}
+
+/* homepage */
+.homepage-container{
+  display: grid;
+  grid: 1fr 1fr 2fr / 1fr;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.homepage-information-section{
+  justify-self: center;
+  padding-top: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.promo-banner{
+  width: 100%;
+  background-color: rgba(255, 175, 204);
+  font-size: 4rem;
+  color: white;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  padding: 5rem;
+}
+
+.promo-section{
+  justify-self: center;
+  position: relative;
+  height: 30vh;
+  width: 50vw;
+}
+
+.promo-container{
+  position: absolute;
+  justify-content: center;
+  display: grid;
+  background: rgba(255, 200, 221);
+  height: 30vh;
+  width: 50vw;
+  color: white;
+  font-size: 2rem;
+}
+
+.promo-content{
+  align-self: center;
+  font-size: 2.5rem;
+}
+
+.promo-navigate-forward{
+  position: absolute;
+  right: -100%;
+  top: 55%;
+}
+
+.promo-navigate-backward{
+  position: absolute;
+  left: -10%;
+  top: 55%;
 }
