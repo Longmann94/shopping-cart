@@ -9,7 +9,7 @@ import './style/style.css';
 import Footer from './components/Footer';
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 
 import uniqid from 'uniqid';
 
@@ -18,7 +18,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const App = () => {
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleClickNavigate = (e) => {
 
