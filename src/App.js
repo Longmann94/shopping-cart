@@ -227,7 +227,7 @@ const App = () => {
         <Route path='/' element={<Home promoArr={promoArr} />} />
         <Route path='/shop' element={<Shop itemsArr={itemsArr} cartQuantity={cartQuantity} handleClick={handleClick} handleClickItem={handleClickItem} />} />
         <Route path='/cart' element={<Cart cart={sortAlphabetical(cart)} handleChange={handleChange}/>} />
-        <Route path='/searchResults' element={<SearchResults resultsArr={resultsArr} cartQuantity={cartQuantity} handleClick={handleClick} />} />
+        <Route path='/searchResults' element={<SearchResults resultsArr={resultsArr} cartQuantity={cartQuantity} handleClick={handleClick} handleClickItem={handleClickItem}/>} />
         <Route path='/itemPreview' element={<ItemPreview selectedItem={selectedItem} handleClick={handleClick}/>} />
       </Routes>
       <Footer />
