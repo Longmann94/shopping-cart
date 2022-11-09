@@ -17,7 +17,7 @@ const Nav = ({ handleClickNavigate, handleChangeSearch, handleSearch }) => {
 
   return (
     <div className='header-nav'>
-      <div>Random Items 4 Sale</div>
+      <div onClick={handleClickNavigate} id='home'>Random Items 4 Sale</div>
       <div className='search-box'>
         <TextField id="standard-basic" label="Search Store for Stuff..." variant="standard" sx={{ width: '100%' }} onChange={handleChangeSearch}/>
         <Button onClick={handleSearch} id='searchResults'> <SearchIcon /></Button>
