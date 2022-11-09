@@ -4,17 +4,21 @@ import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Nav from './components/Nav';
 import SearchResults from './components/SearchResults';
+import ItemPreview from './components/ItemPreview';
 import './style/style.css';
 import Footer from './components/Footer';
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation} from 'react-router-dom';
 
 import uniqid from 'uniqid';
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const App = () => {
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClickNavigate = (e) => {
 
@@ -42,7 +46,8 @@ const App = () => {
       name: 'Pen',
       price: 1.5,
       quantity: 1,
-      details: 'this is a pen',
+      details: 'This is a pen, very simple, used to write stuff on paper',
+      tags: ['pen', 'stationary', 'school']
     },
     {
       key: uniqid(),
@@ -50,7 +55,8 @@ const App = () => {
       name: 'Necklace',
       price: 300,
       quantity: 1,
-      details: 'this is an expensive necklace',
+      details: 'This is an expensive necklace, buy it and wear it to look pretty and elegant',
+      tags: ['necklace', 'jewelery', 'expensive']
     },
     {
       key: uniqid(),
@@ -58,7 +64,8 @@ const App = () => {
       name: 'Pet food',
       price: 10,
       quantity: 1,
-      details: 'this is food for your pets',
+      details: 'This is food for your pets, not for human consumption',
+      tags: ['pet', 'pet food', 'pets']
     },
     {
       key: uniqid(),
@@ -66,7 +73,8 @@ const App = () => {
       name: 'Book',
       price: 15,
       quantity: 1,
-      details: 'this is a book',
+      details: 'This is a book, read it or use it for writing important notes.',
+      tags: ['book', 'stationary', 'school']
     },
     {
       key: uniqid(),
@@ -74,7 +82,8 @@ const App = () => {
       name: 'Instant Noodles',
       price: 5,
       quantity: 1,
-      details: 'this is food for your pets',
+      details: `This is food for you or your pet, maybe don't feed this to your pet`,
+      tags: ['instant noodles', 'noodles', 'food']
     },
     {
       key: uniqid(),
@@ -82,31 +91,41 @@ const App = () => {
       name: 'Apple',
       price: 5,
       quantity: 1,
-      details: 'this is food for your pets',
+      details: 'This is fruit for you, healthy snack to keep doctors away',
+      tags: ['apple', 'fruit', 'food']
+    },
+    {
+      key: uniqid(),
+      id: 'i07',
+      name: 'Orange',
+      price: 5,
+      quantity: 1,
+      details: 'This is fruit for you, healthy snack to keep scurvy away',
+      tags: ['orange', 'fruit', 'food']
     },
   ]);
 
   const [ promoArr, setPromoArr ] = useState([
     {
       key: uniqid(),
-      promo: 'buy 1 get another 1 for 50% of the first item',
-      bool: true
+      promo: 'Buy 1 get another 1 for 100% of its price!'
     },
     {
       key: uniqid(),
-      promo: 'this is the 2nd promotion',
-      bool: true
+      promo: 'Here is another equally funny promo.'
     },
     {
       key: uniqid(),
-      promo: 'this is the 3rd promotion',
-      bool: true
+      promo: 'This is the last promo, I promise.'
     }
   ]);
 
   const [cart, setCart] = useState([]);
   const [cartQuantity, setCartQuantity] = useState(0);
-  const [ count, setCount ] = useState(0);
+  const [ search, setSearch ] = useState('');
+  const [ resultsArr, setResultsArr ] = useState([]);
+  const [ selectedItem, setSelectedItem ] = useState('');
+
 
   const handleClick = (e) => {
     const itemId = e.target.id;
@@ -157,6 +176,31 @@ const App = () => {
     });
   };
 
+  const handleChangeSearch = (e) => {
+    setSearch(e.target.value.toLowerCase());
+  }
+
+  const handleSearch = () => {
+
+    let tempArr = [];
+
+    itemsArr.forEach(item => {
+
+      if(item.tags.find(tag => tag === search)){
+        tempArr.push(item);
+      }
+    });
+  setResultsArr([...tempArr]);
+  navigate('/searchResults');
+
+  }
+
+  const handleClickItem =  (e) => {
+     let selectedItemIndex = itemsArr.findIndex(item => item.id === e.target.id);
+     setSelectedItem(itemsArr[selectedItemIndex]);
+     navigate('/itemPreview');
+  }
+
   useEffect(() => {
     const itemsQuantity = [];
 
@@ -172,16 +216,20 @@ const App = () => {
     setCartQuantity(sumWithInitalValue);
   }, [cart]);
 
-
   return (
     <div className="main-container">
 
-      <Nav handleClickNavigate={handleClickNavigate}/>
+      <Nav handleClickNavigate={handleClickNavigate} handleChangeSearch={handleChangeSearch} handleSearch={handleSearch}/>
+      <div className="cart-container">
+        <ShoppingCartIcon />Cart have {cartQuantity} items <b> </b>
+        <Link to='/cart'>Check Out</Link>
+      </div>
       <Routes>
-        <Route path='/' element={<Home promoArr={promoArr} count={count} />} />
-        <Route path='/shop' element={<Shop itemsArr={itemsArr} cartQuantity={cartQuantity} handleClick={handleClick} />} />
+        <Route path='/' element={<Home promoArr={promoArr} />} />
+        <Route path='/shop' element={<Shop itemsArr={itemsArr} cartQuantity={cartQuantity} handleClick={handleClick} handleClickItem={handleClickItem} />} />
         <Route path='/cart' element={<Cart cart={sortAlphabetical(cart)} handleChange={handleChange}/>} />
-        <Route path='/searchResults' element={<SearchResults itemsArr={itemsArr} cartQuantity={cartQuantity} handleClick={handleClick} />} />
+        <Route path='/searchResults' element={<SearchResults resultsArr={resultsArr} cartQuantity={cartQuantity} handleClick={handleClick} />} />
+        <Route path='/itemPreview' element={<ItemPreview selectedItem={selectedItem} handleClick={handleClick}/>} />
       </Routes>
       <Footer />
 

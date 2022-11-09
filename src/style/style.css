@@ -6,7 +6,7 @@ body{
 
 .main-container {
   display: grid;
-  grid: 150px 1fr/ 1fr;
+  grid: 150px 50px 1fr/ 1fr;
 }
 
 .header-nav{
@@ -69,6 +69,7 @@ img{
   border-radius: 25px;
 }
 
+/* Cart page */
 .cart-item{
   display: grid;
   grid: 150px / 150px 1fr;
@@ -78,6 +79,7 @@ img{
 
 .empty-cart-message{
   text-align: center;
+  font-weight: bold;
 }
 
 .cart-items{
@@ -95,6 +97,18 @@ img{
   text-align: right;
   padding: 2.5rem;
   font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.cart-quantity-input{
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cart-quantity-input input{
+  font-size: 1.25rem;
+  padding: 0.25rem;
 }
 
 /* homepage */
@@ -114,13 +128,13 @@ img{
 
 .promo-banner{
   width: 100%;
-  background-color: rgba(255, 175, 204);
+  background-color: rgba(205, 180, 219);
   font-size: 4rem;
   color: white;
   justify-self: center;
   align-self: center;
   text-align: center;
-  padding: 5rem;
+  padding: 3.5rem;
 }
 
 .promo-section{
@@ -135,7 +149,7 @@ img{
   justify-content: center;
   display: grid;
   background: rgba(255, 200, 221);
-  height: 30vh;
+  height: 25vh;
   width: 50vw;
   color: white;
   font-size: 2rem;
@@ -149,11 +163,38 @@ img{
 .promo-navigate-forward{
   position: absolute;
   right: -100%;
-  top: 55%;
+  top: 45%;
 }
 
 .promo-navigate-backward{
   position: absolute;
   left: -10%;
-  top: 55%;
+  top: 45%;
+}
+
+/* search results page */
+.empty-search-message{
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* item preview page */
+.item-preview-container{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 50vh;
+  gap: 0.5rem;
+}
+
+.item-preview-name{
+  font-size: 4.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.item-preview-image{
+  display: flex;
+  justify-content: center;
 }

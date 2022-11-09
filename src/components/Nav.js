@@ -11,7 +11,7 @@ import StoreIcon from '@mui/icons-material/Store';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Nav = ({ handleClickNavigate }) => {
+const Nav = ({ handleClickNavigate, handleChangeSearch, handleSearch }) => {
 
 
 
@@ -19,8 +19,8 @@ const Nav = ({ handleClickNavigate }) => {
     <div className='header-nav'>
       <div>Random Items 4 Sale</div>
       <div className='search-box'>
-        <TextField id="standard-basic" label="Search Store for Stuff..." variant="standard" sx={{ width: '100%' }}/>
-        <Button onClick={handleClickNavigate} id='searchResults'> <SearchIcon /></Button>
+        <TextField id="standard-basic" label="Search Store for Stuff..." variant="standard" sx={{ width: '100%' }} onChange={handleChangeSearch}/>
+        <Button onClick={handleSearch} id='searchResults'> <SearchIcon /></Button>
       </div>
       <ButtonGroup>
         <IconButton onClick={handleClickNavigate} id='home'> <HomeIcon /> Home </IconButton>

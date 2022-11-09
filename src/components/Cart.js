@@ -46,7 +46,7 @@ const Cart = ({ cart, handleChange }) => {
             return (
               <div className='cart-list' key={item.key}>
                 <CartItem item={item} />
-                <div>
+                <div className='cart-quantity-input'>
                   <label htmlFor={item.id}>Amount:</label>
                   <input type='number' id={item.id} value={item.quantity} onChange={handleChange}></input>
                 </div>
@@ -55,7 +55,7 @@ const Cart = ({ cart, handleChange }) => {
           })
         }
       </div>
-      <div className='total-cart-cost'>Total Cost of items: ${totalSum}. <Button variant='contained'><ShoppingCartCheckoutIcon />Check Out</Button></div>
+      <div className='total-cart-cost'>Total Cost of items: ${totalSum}. <Button variant='contained' size='large'><ShoppingCartCheckoutIcon />Check Out</Button></div>
     </div>
       );
 }
